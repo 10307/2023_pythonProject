@@ -43,3 +43,10 @@ print(isSmallerOrEqualThan)
 
 #print(isSmallerThan)
 #print(isSmallerOrEqualThan)
+
+
+
+andCondition = numA > 20 and numB >3
+orCondition = numA > 20 or numB >3
+print(andCondition)
+print(orCondition)
