@@ -1,0 +1,7 @@
+#변수
+first_variable =1
+second_variable = "안녕하세요"
+#출력구문
+print(first_variable)
+print(second_variable)
+print("변수에 넣지 않고 출력 할거예요")
