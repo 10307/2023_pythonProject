@@ -35,5 +35,5 @@ if score >= 60 and score < 70:
 if score >= 0 and score < 60:
     print("E반으로 가세요.")
 
- else:
+else:
     print("값을 이상하게 입력한 것 같아요")
