@@ -14,9 +14,9 @@ print(scores[1:4])
 print(scores[:3])
 
 # 평균을 구하고 싶을때,
- sum= 0
+sum= 0
 for i in scores:
-sum = sum + i
+ sum = sum + i
 
 print(sum)
 
