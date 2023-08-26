@@ -18,12 +18,12 @@ sum= 0
 for i in scores:
  if i >100 or i < 0:
   print("skip", i)
-  continue
+  break #for문이 아예 나가져요.
  sum = sum + i
 
 
 
-average = sum / len(scores)
+average = sum / len(scores) #이 경우 정상적이지 않은 평균값, 별도로 처리해주기
 
 print("학생들의 점수 총합: ", sum)
 print("학생들의 점수 총합: ", average)
