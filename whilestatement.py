@@ -43,3 +43,4 @@ while True:
         print("정답입니다!")
         break
 
+#값 맞추기
