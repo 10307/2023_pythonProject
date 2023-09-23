@@ -8,7 +8,7 @@ print( strings[0] )
 
 print(anys[3][2])
 
-scores = [84, 65, 79, 91, 50, 80, 54, 23, 58, 98, 64, 95, 90, 39, 84, 67, 82, 99, 91]
+scores = [84, -5, 65, 79, 105, 100, 91, 50, -32, 80, 54, 23, 58, 98, 64, 95, 90, 39, 84, 67, 82, 99, 91]
 print(scores[3:])
 print(scores[1:4])
 print(scores[:3])
@@ -16,39 +16,17 @@ print(scores[:3])
 # 평균을 구하고 싶을때,
 sum= 0
 for i in scores:
+ if i >100 or i < 0:
+  print("skip", i)
+  break #for문이 아예 나가져요.
  sum = sum + i
 
-print(sum)
 
-average = sum / len(scores)
+
+average = sum / len(scores) #이 경우 정상적이지 않은 평균값, 별도로 처리해주기
 
 print("학생들의 점수 총합: ", sum)
 print("학생들의 점수 총합: ", average)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#for i in range(0, 11)
+#print(i)
