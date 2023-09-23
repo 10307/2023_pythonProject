@@ -13,5 +13,5 @@ for i in range(6):
 
 
 for i in range(6): print(' ' * i + 'x' * (9 - (2 * i)))
-
+#피라미드 만들기
 
