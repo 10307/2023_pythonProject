@@ -1,9 +1,9 @@
 #f(x) = 3x +5
 
-     def tmpFunction(x):
+def tmpFunction(x):
     return 3 * x + 5
 
-     print (tmpFunction(5))
+    print (tmpFunction(5))
 
 #함수는 기능을 쪼갠다
 #게임
@@ -25,7 +25,7 @@
 # -> 결과판단
     import random
 
-    def menuPrint():
+def menuPrint():
     print("=======GAME=======")
     print("1. 행맨")
     print("2. 업다운")
@@ -38,9 +38,9 @@
 
 hangman_input_history = []
 
-    def getHangmanInput():
+def getHangmanInput():
      while True:
-     = input("Input alphabet ::: ")
+     input("Input alphabet ::: ")
         if(user_input.isalpha()):
             alphabet = user_input[0].lower()
             if (alphabet in hangman_input_history):
