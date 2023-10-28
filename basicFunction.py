@@ -70,7 +70,7 @@ def runHangman():
 # print CorrectWords ()함수를 선언해서 그안에서 입력되었던 맞는 항목들 위치에 맞게 출력
 
 
-         #a.find(b) -> b가 a에 없으면 -1을 출력
+        #a.find(b) -> b가 a에 없으면 -1을 출력
 
 
 
