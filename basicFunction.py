@@ -39,8 +39,8 @@ def menuPrint():
 hangman_input_history = []
 
 def getHangmanInput():
+    input("Input alphabet :::")
      while True:
-     input("Input alphabet ::: ")
         if(user_input.isalpha()):
             alphabet = user_input[0].lower()
             if (alphabet in hangman_input_history):
@@ -69,12 +69,14 @@ def runHangman():
           print("alive")
           break
 
-#1. 모든 정답을 맞췄을 때 게임이 끝나지 않음
-# -> 맞추면 alive 출력해주고 그만하기 (break문을 사용)
-
-    if print ("CORRECT")
-    print("alive")
-    break
+          printStr = ""
+     for i in word:
+         if i in hangman_input_history:
+             printStr = Print + i
+         else:
+             printStr = printStr + "_"
+             printStr = printStr + " "
+             print(printStr)
 
 #2. 내가 맞춘 정답들이 어디에 위치해있는지 알 수 없음
 #-> s _ _ s _ _ _출력
