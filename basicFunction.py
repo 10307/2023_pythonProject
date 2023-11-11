@@ -85,6 +85,9 @@ def runHangman():
       else:
            chance = chance - 1
            print("LEFT CHANCE : ", chance)
+
+           if chance ==0;
+               print("you die")
       if chance >= len(wordset): # 정답을 맞췄을때 게임 종료
           print("alive")
           break
