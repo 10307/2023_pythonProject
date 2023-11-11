@@ -50,12 +50,14 @@ def getHangmanInput():
 
 def runHangman():
     global hangman_input_history
-    hangman_input_history = []  #초기화용 코드
+    hangman_input_history = []
+    #초기화용 코드
     word = getRandomWord()
     chance = 7
+    correct = 0
 
     word = getRandomWord()
-    alphabet = getHangmanInput()
+    wordSet = set(word)
 
      hangman_input_history. index(alphabet)
            if word.find(alphabet)  != -1:    #알파벳이 word에 속해있으면 정답이라고 알려주고 아니면 기회를 깎기
@@ -63,8 +65,13 @@ def runHangman():
       else:
            chance = chance - 1
            print("LEFT CHANCE : ", chance)
+      if chance >= len(wordset): # 정답을 맞췄을때 게임 종료
+          print("alive")
+          break
+
 #1. 모든 정답을 맞췄을 때 게임이 끝나지 않음
 # -> 맞추면 alive 출력해주고 그만하기 (break문을 사용)
+
     if print ("CORRECT")
     print("alive")
     break
