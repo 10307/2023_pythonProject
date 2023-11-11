@@ -23,7 +23,7 @@ def tmpFunction(x):
 # -> 랜덤으로 단어 선정
 # -> 사용자 입력받기
 # -> 결과판단
-    import random
+
 import random
 def menuPrint():
     print("=======GAME=======")
