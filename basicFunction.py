@@ -3,7 +3,7 @@
 def tmpFunction(x):
     return 3 * x + 5
 
-    print (tmpFunction(5))
+    print(tmpFunction(5))
 
 #함수는 기능을 쪼갠다
 #게임
@@ -24,7 +24,7 @@ def tmpFunction(x):
 # -> 사용자 입력받기
 # -> 결과판단
     import random
-
+import random
 def menuPrint():
     print("=======GAME=======")
     print("1. 행맨")
@@ -32,76 +32,73 @@ def menuPrint():
     print("0. 종료")
     print("==================")
 
-    def getRandomWord():
-        words = ["hang", "pretty", "apple", "ant", "water", "samsung", "MCdonalds", "fluent", "voca", "galaxy"]
-        return words[random.randrange(0, len(words))]
+def getRandomWord():
+    words = ["hang", "pretty", "apple", "ant", "water", "samsung", "MCdonalds", "fluent", "voca", "galaxy"]
+    return words[random.randrange(0, len(words))]
 
 hangman_input_history = []
 
 def getHangmanInput():
-    input("Input alphabet :::")
-
     while True:
-        if(user_input.isalpha()):
+        user_input = input("Input alphabet ::: ")
+        if(user_input.isalpha()): # 알파벳인지 확인
             alphabet = user_input[0].lower()
-            if (alphabet in hangman_input_history):
+            if (alphabet in hangman_input_history): # 이미 입력된 알파벳인지 확인
                 print("이미 입력한 값입니다. 새로운 알파벳을 입력해주세요.")
             else:
                 return alphabet
 
-    def printCorrectWords(word):
-
-
-printStr = ""
-for i in word:
-    if i in hangman_input_history:
-        printStr = Print + i
-    else:
-        printStr = printStr + "_"
+def printPresentWords(word):
+    printStr = ""
+    for i in word:
+        if i in hangman_input_history:
+           printStr = Print + i
+        else:
+           printStr = printStr + "_"
         printStr = printStr + " "
-        print(printStr)
+
+    print(printStr)
 
 def runHangman():
     global hangman_input_history
+
     hangman_input_history = []
     #초기화용 코드
-    word = getRandomWord()
+    hangman_input_history = []
     chance = 7
     correct = 0
 
     word = getRandomWord()
     wordSet = set(word)
 
-    while chance > 0;
+    while chance > 0:
 
         printCorrectWords(word)
 
 
         alphabet = str(getHangmanInput())
-    printPresentWords(word)
 
-     hangman_input_history. append(alphabet)
-           if word.find(alphabet)  != -1:    #알파벳이 word에 속해있으면 정답이라고 알려주고 아니면 기회를 깎기
-          print("CORRECT")
-      else:
-           chance = chance - 1
+     hangman_input_history.append(alphabet)
+
+           if word.find(alphabet)  != -1: #알파벳이 word에 속해있으면 정답이라고 알려주고 아니면 기회를 깎기
+               correct = correct + 1
+               print("CORRECT!")
+           else:
+               chance = chance - 1
            print("LEFT CHANCE : ", chance)
 
            if chance ==0;
                print("you die")
-      if chance >= len(wordset): # 정답을 맞췄을때 게임 종료
-          print("alive")
-          break
+           else:
+                print("LEFT CHANCE : ", chance)
+        if correct >= len(wordSet):  # 정답을 맞췄을때 게임 종료
+    print("Alive!")
+    break
 
-          printStr = ""
 
-     for i in word:
-         if i in hangman_input_history:
-             printStr = Print + i
-         else:
-             printStr = printStr + "_"
-             printStr = printStr + " "
-             print(printStr)
+def runUpDown():
+    answer = random.randrange(1, 10)
+    chance = 3
 
 #2. 내가 맞춘 정답들이 어디에 위치해있는지 알 수 없음
 #-> s _ _ s _ _ _출력
@@ -146,14 +143,14 @@ def runupdown():
 
 userInput = -1
 
-while userInput !=0:
+while userInput != 0:
     menuPrint()
-    userInput = int(input("SELECT MENU :::"))
+    userInput = int(input("SELECT MENU ::: "))
 
     if userInput == 1:
         runHangMan()
     elif userInput == 2:
-        runupdown()
+        runUpDown()
 
         # 전역변수 :전지역 사용가능
         # 지역변수 :정해진 지역 사용가능
