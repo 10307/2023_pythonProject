@@ -52,7 +52,7 @@ def printPresentWords(word):
     printStr = ""
     for i in word:
         if i in hangman_input_history:
-           printStr = Print + i
+           printStr = printStr + i
         else:
            printStr = printStr + "_"
         printStr = printStr + " "
@@ -74,27 +74,26 @@ def runHangman():
 
     while chance > 0:
 
-        printCorrectWords(word)
+        printPresentWords(word)
 
 
         alphabet = str(getHangmanInput())
 
-     hangman_input_history.append(alphabet)
+        hangman_input_history.append(alphabet)
 
-           if word.find(alphabet)  != -1: #알파벳이 word에 속해있으면 정답이라고 알려주고 아니면 기회를 깎기
-               correct = correct + 1
-               print("CORRECT!")
-           else:
-               chance = chance - 1
-           print("LEFT CHANCE : ", chance)
-
-           if chance ==0;
-               print("you die")
-           else:
+        if word.find(alphabet) != -1:  # 알파벳이 word에 속해있으면 정답이라고 알려주고 아니면 기회를 깎기
+            correct = correct + 1
+            print("CORRECT!")
+        else:
+            chance = chance - 1
+            if chance == 0:
+                print("you die")
+            else:
                 print("LEFT CHANCE : ", chance)
+
         if correct >= len(wordSet):  # 정답을 맞췄을때 게임 종료
-    print("Alive!")
-    break
+            print("Alive!")
+            break
 
 
 def runUpDown():
@@ -149,7 +148,7 @@ while userInput != 0:
     userInput = int(input("SELECT MENU ::: "))
 
     if userInput == 1:
-        runHangMan()
+        runHangman()
     elif userInput == 2:
         runUpDown()
 
