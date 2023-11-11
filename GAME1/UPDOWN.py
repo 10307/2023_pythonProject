@@ -29,6 +29,7 @@ def runupdown():
         # 1. 사용자에게 기회주기(3번)
         # 2. 틀렸을때 updown 출력해주기
 
+
         while chance > 0:
             user_input = int(input("값을 입력하세요 >>"))
 
