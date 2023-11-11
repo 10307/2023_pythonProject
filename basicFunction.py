@@ -93,6 +93,7 @@ def runHangman():
           break
 
           printStr = ""
+
      for i in word:
          if i in hangman_input_history:
              printStr = Print + i
