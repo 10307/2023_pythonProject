@@ -48,6 +48,18 @@ def getHangmanInput():
             else:
                 return alphabet
 
+    def printCorrectWords(word):
+
+
+printStr = ""
+for i in word:
+    if i in hangman_input_history:
+        printStr = Print + i
+    else:
+        printStr = printStr + "_"
+        printStr = printStr + " "
+        print(printStr)
+
 def runHangman():
     global hangman_input_history
     hangman_input_history = []
@@ -59,7 +71,15 @@ def runHangman():
     word = getRandomWord()
     wordSet = set(word)
 
-     hangman_input_history. index(alphabet)
+    while chance > 0;
+
+        printCorrectWords(word)
+
+
+        alphabet = str(getHangmanInput())
+    printPresentWords(word)
+
+     hangman_input_history. append(alphabet)
            if word.find(alphabet)  != -1:    #알파벳이 word에 속해있으면 정답이라고 알려주고 아니면 기회를 깎기
           print("CORRECT")
       else:
