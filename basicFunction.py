@@ -41,7 +41,7 @@ hangman_input_history = []
 def getHangmanInput():
     input("Input alphabet :::")
 
-     while True:
+    while True:
         if(user_input.isalpha()):
             alphabet = user_input[0].lower()
             if (alphabet in hangman_input_history):
