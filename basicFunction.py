@@ -64,6 +64,7 @@ def runHangman():
 
     hangman_input_history = []
     #초기화용 코드
+
     hangman_input_history = []
     chance = 7
     correct = 0
