@@ -1,5 +1,6 @@
 import pygame
 
+# 색상 dictionary
 colors = {
     'white': (255, 255, 255),
     'black': (0, 0, 0),
@@ -17,36 +18,22 @@ colors = {
     '2048': (29, 37, 41),
 }
 
-board = [ [-1, -1, -1, -1],
-           [-1, -1, -1, -1],
-           [-1, -1, -1, -1],
-           [-1, -1, -1, -1], ]
+# 실제 게임 로직이 반영될 보드
+board = [[-1, -1, -1, -1],
+          [-1, -1, -1, -1],
+          [-1, -1, -1, -1],
+          [-1, -1, -1, -1]]
 
+# 화면 관련 설정
+size = (500, 500)
+screen = pygame.display.set_mode(size)
+
+# 게임 진행 flag 변수
 isGameRunning = True
 
-
 def initScreen():
-    size = (500, 500)
-    screen = pygame.display.set_mode(size)
-    screen.fill('white')
+    screen.fill(colors['white'])
     pygame.display.update()
-
-def addNewBlock():
-    canSet = False
-
-    while not canSet:
-        randomX = random.randint(0,3)
-        randomY = random.randint(0,3)
-
-        if board[randomX][randomY] == -1:
-            canSet = True
-
-        probability = 2 if random.randint(1, 10) < 10 else 4
-
-    board[randomX][randomY] = 2 if random.randint(1, 10) < 10 else 4
-
-
-
 
 def setEventListener():
     global isGameRunning
@@ -63,9 +50,6 @@ def setEventListener():
             elif event == pygame.K_LEFT:
                 print("왼쪽")
 
-            else:
-                print("키보 키 입력 이벤트가 감지됨")
-
 def drawDisplay():
     global screen
 
@@ -80,11 +64,12 @@ def drawDisplay():
             x = (blockWidth + margin) * j + baseX
             y = (blockHeight + margin) * i + baseY
             data = str(board[i][j])
-            if data == -1 : #데이터가 없을때
-                pygame.draw.rect(screen, colors[data], [x, y, blockWidth, blockHeight], 2 )
+            if data == '-1':  # 데이터가 없을때
+                pygame.draw.rect(screen, colors[data], [x, y, blockWidth, blockHeight], 2)  # outlined rect
             else:
-                 pygame.draw.rect(screen, colors[data], [x, y, blockWidth, blockHeight])
+                pygame.draw.rect(screen, colors[data], [x, y, blockWidth, blockHeight])  # filled rect
 
+    pygame.display.flip()  # 화면 다시그리기
 
 def run2048():
     pygame.init()
@@ -93,12 +78,11 @@ def run2048():
 
     while isGameRunning:
         setEventListener()
-        for event in pygame.event.get():
-            pass
+        drawDisplay()
+
     pygame.quit()
 
 run2048()
-
 
 
 
