@@ -71,6 +71,7 @@ def drawDisplay():
 
     pygame.display.flip()  # 화면 다시그리기
 
+
 def run2048():
     pygame.init()
     initScreen()
