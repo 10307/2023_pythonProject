@@ -31,6 +31,21 @@ def initScreen():
     screen.fill('white')
     pygame.display.update()
 
+def addNewBlock():
+    canSet = False
+
+    while not canSet:
+        randomX = random.randint(0,3)
+        randomY = random.randint(0,3)
+
+        if board[randomX][randomY] == -1:
+            canSet = True
+
+        probability = 2 if random.randint(1, 10) < 10 else 4
+
+    board[randomX][randomY] = 2 if random.randint(1, 10) < 10 else 4
+
+
 
 
 def setEventListener():
