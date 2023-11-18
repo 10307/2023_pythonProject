@@ -3,6 +3,7 @@ import pygame
 colors = {
     'white': (255, 255, 255),
     'black': (0, 0, 0),
+    '-1': (200, 200, 200),
     '2': (236, 239, 241),
     '4': (207, 216, 220),
     '8': (176, 190, 197),
@@ -14,24 +15,60 @@ colors = {
     '512': (55, 71, 79),
     '1024': (38, 50, 56),
     '2048': (29, 37, 41),
-
-
-
-
 }
 
+board = [ [-1, -1, -1, -1],
+           [-1, -1, -1, -1],
+           [-1, -1, -1, -1],
+           [-1, -1, -1, -1], ]
 
+isGameRunning = True
 
-
-import pygame
 
 def initScreen():
     size = (500, 500)
-    white = (255, 255, 255)
-    black = (0, 0, 0)
     screen = pygame.display.set_mode(size)
-    screen.fill(white)
+    screen.fill('white')
     pygame.display.update()
+
+
+
+def setEventListener():
+    global isGameRunning
+    for event in pygame.event.get():
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_q:
+                isGameRunning = False
+            elif event == pygame.K_DOWN:
+                print("아래")
+            elif event == pygame.K_UP:
+                print("위")
+            elif event == pygame.K_RIGHT:
+                print("오른쪽")
+            elif event == pygame.K_LEFT:
+                print("왼쪽")
+
+            else:
+                print("키보 키 입력 이벤트가 감지됨")
+
+def drawDisplay():
+    global screen
+
+    baseX = 35
+    baseY = 35
+    blockHeight = 100
+    blockWidth = 100
+    margin = 10
+
+    for i in range(4):
+        for j in range(4):
+            x = (blockWidth + margin) * j + baseX
+            y = (blockHeight + margin) * i + baseY
+            data = str(board[i][j])
+            if data == -1 : #데이터가 없을때
+                pygame.draw.rect(screen, colors[data], [x, y, blockWidth, blockHeight], 2 )
+            else:
+                 pygame.draw.rect(screen, colors[data], [x, y, blockWidth, blockHeight])
 
 
 def run2048():
@@ -39,6 +76,10 @@ def run2048():
     initScreen()
     print("2048 게임 시작")
 
+    while isGameRunning:
+        setEventListener()
+        for event in pygame.event.get():
+            pass
     pygame.quit()
 
 run2048()
@@ -96,19 +137,4 @@ run2048()
 
 
 
-
-print("게임을 원하시면 1번을 눌러주세요."
-      "게임을 원하지 않으시면 2번을 눌러주세요")
-name = input( "게임을 원하시나요? = ")
-
-if name == 1:
-     print(
-           "#### #### #### ####"
-           "#### #### #### ####"
-           "#### #### #### ####"
-           "#### #### #### ####"
-           "#### #### #### ####" )
-
-     if name == 2:
-         'break'
 
