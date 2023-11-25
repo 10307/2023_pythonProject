@@ -1,4 +1,5 @@
-import pygame
+import pygame #pygame 이라는 라이브러리에 들어가기
+import random #random이라는 라이브러리에 들어가기
 
 # 색상 dictionary
 colors = {
@@ -16,31 +17,50 @@ colors = {
     '512': (55, 71, 79),
     '1024': (38, 50, 56),
     '2048': (29, 37, 41),
-}
+} #색깔을 함수로 지정
 
 # 실제 게임 로직이 반영될 보드
-board = [[-1, -1, -1, -1],
+board = [ [-1, -1, -1, -1],
           [-1, -1, -1, -1],
           [-1, -1, -1, -1],
           [-1, -1, -1, -1]]
 
 # 화면 관련 설정
-size = (500, 500)
-screen = pygame.display.set_mode(size)
+size = (500, 500) #사이즈를 500,500으로 지정
+screen = pygame.display.set_mode(size) #스크린을 size에 맞게 디스플레이 모드로 전환
 
 # 게임 진행 flag 변수
-isGameRunning = True
+isGameRunning = True #아직 게임이 진행되고 있다면
 
 def initScreen():
-    screen.fill(colors['white'])
+    screen.fill(colors['black'])
     pygame.display.update()
+
+def addNewBlock():
+    canSet = False
+
+    while not canSet:
+        randomX = random.randint(0,3)
+        randomY = random.randint(0,3)
+
+        if board[randomX][randomY] == -1:
+            canSet = True
+
+        board[randomX][randomY] = 2 if random.randint(1, 10) < 10 else 4
 
 def setEventListener():
     global isGameRunning
     for event in pygame.event.get():
+
+        if event.type == pygame.QUIT:
+            isGameRunning = False
+            return
+
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_q:
                 isGameRunning = False
+                return
+
             elif event == pygame.K_DOWN:
                 print("아래")
             elif event == pygame.K_UP:
@@ -49,6 +69,25 @@ def setEventListener():
                 print("오른쪽")
             elif event == pygame.K_LEFT:
                 print("왼쪽")
+
+
+
+            def run(self):
+                while self.running:
+                    for event in pygame.event.get():
+                        if event.type == pygame.QUIT:
+                            self.running = False
+                        elif event.type == pygame.KEYDOWN:
+                            if event.key == pygame.K_LEFT:
+                                self.move('left')  # 왼쪽 방향 키를 누르면 'left'로 블록을 이동
+                            elif event.key == pygame.K_RIGHT:
+                                self.move('right')  # 오른쪽 방향 키를 누르면 'right'로 블록을 이동
+                            elif event.key == pygame.K_UP:
+                                self.move('up')  # 위쪽 방향 키를 누르면 'up'으로 블록을 이동
+                            elif event.key == pygame.K_DOWN:
+                                self.move('down')  # 아래쪽 방향 키를 누르면 'down'으로 블록을 이동
+
+            addNewBlock()
 
 def drawDisplay():
     global screen
@@ -64,6 +103,8 @@ def drawDisplay():
             x = (blockWidth + margin) * j + baseX
             y = (blockHeight + margin) * i + baseY
             data = str(board[i][j])
+
+
             if data == '-1':  # 데이터가 없을때
                 pygame.draw.rect(screen, colors[data], [x, y, blockWidth, blockHeight], 2)  # outlined rect
             else:
